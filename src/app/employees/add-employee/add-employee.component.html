@@ -1,1 +1,67 @@
-<h1>New Employee</h1>
+<div class="row">
+	<div class="col">
+		<div class="card">
+			<div class="card-title"><h2 class="text-center">New Employee</h2></div>
+			<div class="card-body">
+				<form class="form" [formGroup]="addEmployeeForm" (ngSubmit)="onSubmit(addEmployeeForm.value)">
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="name">Name:</label>
+								<input class="form-control" type="text" name="name" id="name" [formControl]="addEmployeeForm.controls['name']">
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="area">Area:</label>
+								<input class="form-control" type="text" name="area" [formControl]="addEmployeeForm.controls['area']">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="birthdate">Birthdate:</label>
+								<input class="form-control" type="text" name="birthdate" [formControl]="addEmployeeForm.controls['birthdate']" bsDatepicker>
+							</div>
+						</div>
+						<div class="col">
+							<job-selector [area]="addEmployeeForm.controls['area'].value" (selectedJob)="selectJob($event)"></job-selector>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col">
+							<country-selector (selectedCountry)="selectCountry($event)"></country-selector>	
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="username">Username:</label>
+								<input class="form-control" type="text" name="username" [formControl]="addEmployeeForm.controls['username']">
+							</div>
+						</div>
+					</div>	
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<label for="hire-date">Hire Date:</label>
+								<input class="form-control" type="text" name="hire-date" [formControl]="addEmployeeForm.controls['hireDate']" bsDatepicker>
+							</div>
+						</div>
+						<div class="col">
+							<div class="form-group">
+								<label for="status">Status:</label>
+								<input class="form-control" type="text" name="username" [formControl]="addEmployeeForm.controls['status']">
+							</div>
+						</div>
+					</div>					
+					<div class="row">
+						<div class="col text-center">
+							<button type="button" class="btn btn-default back-button" [routerLink]="['/employees']">Back</button>
+							<button type="submit" class="btn btn-success" [disabled]="!addEmployeeForm.valid">Save</button>
+						</div>						
+					</div>			
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

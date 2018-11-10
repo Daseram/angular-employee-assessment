@@ -1,0 +1,6 @@
+<div class="form-group">
+	<label for="country">Country:</label>
+	<select class="form-control" type="text" name="country" (change)="selectCountry($event.target.value)">
+		<option *ngFor="let country of (countries | async).countries" [value]="country.name">{{country.name}}</option>
+	</select>
+</div>

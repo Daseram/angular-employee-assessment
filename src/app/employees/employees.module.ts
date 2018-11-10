@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeesRoutingModule } from './employees-routing.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { SharedModule } from '../shared/shared.module';
 
 import { EmployeesComponent} from './employees.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
@@ -10,15 +12,18 @@ import { DetailEmployeeComponent } from './detail-employee/detail-employee.compo
 
 @NgModule({
   declarations: [
-  EmployeesComponent,
-  AddEmployeeComponent,
-  EditEmployeeComponent,
-  DetailEmployeeComponent
+    EmployeesComponent,
+    AddEmployeeComponent,
+    EditEmployeeComponent,
+    DetailEmployeeComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
-    EmployeesRoutingModule
+    ReactiveFormsModule,
+    EmployeesRoutingModule,
+    BsDatepickerModule.forRoot(),
+    SharedModule
   ]
 })
 
